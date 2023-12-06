@@ -26,6 +26,6 @@ Docker container will read your configuration from your local config folder, jus
 Docker run will use `-p` and `-v` flags to define host ports and config folder:
 
 ```bash
-docker run -d -p 9399:9399 -p 8000:8000 -v /your/path/to/config:/config --name=monitoring ghcr.io/r-dvl/monitoring/monitoring
+docker run -d -p 9399:9399 -p 8000:8000 -v /your/path/to/config:/config --name=monitoring ghcr.io/r-dvl/monitoring:latest
 ```
 
