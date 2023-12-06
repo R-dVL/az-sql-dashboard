@@ -1,11 +1,21 @@
 version: '3'
 
 services:
+  exporter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: exporter
+    volumes:
+      - ./config/sql_exporter:/config
+    ports:
+      - 9399:9399
+
   prometheus:
     image: prom/prometheus
     container_name: prometheus
     volumes:
-      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
 
