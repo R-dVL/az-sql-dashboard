@@ -4,9 +4,9 @@ Grafana Azure SQL Dashboard monitoring
 
 ## Table of Contents
 1. [Dependencies](#Dependencies)
-2. [Usage](#Usage)
+2. [Usage](#Workflow)
 2. [Configuration](#Configuration)
-2. [Run](#Run)
+2. [Run](#Usage)
 
 
 ## Dependencies
@@ -14,11 +14,11 @@ Grafana Azure SQL Dashboard monitoring
 - Docker.
 
 
-## Usage
-This Docker image is prepared to start an Azure SQL Grafana Dashboard using Prometheus with an exporter.
+## Workflow
+This Docker image is prepared to start an Azure SQL **Grafana** Dashboard using **Prometheus** with an **Exporter**.
     1. **Exporter**: Fetch data from Azure SQL Database with collectors, collectors retrieve information with SQL Queries and saves it in `/metrics`.
     2. **Prometheus**: Works with Web Scrapping, it is configured to scrape database info from `/metrics`.
-    3. **Grafana**: Shows Azure SQL Database data fetched in a [Dashboard](sql_exporter\examples\azure-sql-mi\grafana-dashboard).
+    3. **Grafana**: Shows Azure SQL Database data fetched in a [Dashboard](https://github.com/R-dVL/monitoring/tree/master/sql_exporter/examples/azure-sql-mi/grafana-dashboard).
 
 
 ## Configuration
@@ -26,9 +26,10 @@ Configuration is attached to containers with Docker Volumes.
 
 
 ### Exporter
-Exporter configuration is read from [sql_exporter.yml](https://github.com/burningalchemist/sql_exporter/blob/master/documentation/sql_exporter.yml). Just follow [this examples](https://github.com/burningalchemist/sql_exporter/tree/master/examples) to achieve the desired configuration.
+Exporter configuration is read from [sql_exporter.yml](https://github.com/R-dVL/monitoring/blob/master/sql_exporter/documentation/sql_exporter.yml). Just follow [this examples](https://github.com/R-dVL/monitoring/tree/master/sql_exporter/examples) to achieve the desired configuration.
 
 ```yml
+# sql_exporter.yml
 # Global settings and defaults.
 global:
   # Scrape timeouts ensure that:
@@ -177,9 +178,10 @@ collector_files:
   - "*.collector.yml"
 ```
 
-Exporter also use collectors to fetch data from database with SQL queries, this is a standard collector:
+Exporter also use collectors to fetch data from database with SQL queries, this is a [standard collector](https://github.com/R-dVL/monitoring/blob/master/sql_exporter/examples/mssql_standard.collector.yml):
 
 ```yml
+# mssql_standard.collector.yml
 # A collector defining standard metrics for Microsoft SQL Server.
 #
 # It is required that the SQL Server user has the following permissions:
@@ -389,7 +391,7 @@ queries:
 ```
 
 ### Prometheus
-Prometheus is configured to scrape data from `http://localhost:9399/metrics` where Exporter is showing data fetched, its configuration file is also attached to its Docker Container with a volume and this is an example:
+**Prometheus** is configured to scrape data from `http://localhost:9399/metrics` where Exporter is showing data fetched, its configuration file is also attached to its Docker Container with a volume and this is an example:
 
 ```yml
 global:
@@ -404,10 +406,10 @@ scrape_configs:
 ```
 
 ### Grafana
-Grafana is configured using its own GUI, just stablish a connection with Prometheus and import or create a [Dashboard](sql_exporter\examples\azure-sql-mi\grafana-dashboard).
+**Grafana** is configured using its own GUI, just stablish a connection with **Prometheus** and import or create a [Dashboard](https://github.com/R-dVL/monitoring/tree/master/sql_exporter/examples/azure-sql-mi/grafana-dashboard).
 
 
-## Run
+## Usage
 You can start these 3 services using the Docker Compose file in this repo `docker compose up -d`.
 
 ```yml
