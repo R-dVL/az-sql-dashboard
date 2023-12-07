@@ -1,2 +1,6 @@
-README.md
-Dockerfile
+/README.md
+/Dockerfile
+/config
+/.github
+/docker-compose.yml
+/.vscode
