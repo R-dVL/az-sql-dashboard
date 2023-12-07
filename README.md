@@ -179,6 +179,7 @@ collector_files:
   - "*.collector.yml"
 ```
 
+### Collectors
 Exporter also use collectors to fetch data from database with SQL queries, this is a [standard collector](https://github.com/R-dVL/monitoring/blob/master/sql_exporter/examples/mssql_standard.collector.yml):
 
 ```yml
