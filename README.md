@@ -16,9 +16,10 @@ Grafana Azure SQL Dashboard monitoring
 
 ## Workflow
 This Docker image is prepared to start an Azure SQL **Grafana** Dashboard using **Prometheus** with an **Exporter**.
-    1. **Exporter**: Fetch data from Azure SQL Database with collectors, collectors retrieve information with SQL Queries and saves it in `/metrics`.
-    2. **Prometheus**: Works with Web Scrapping, it is configured to scrape database info from `/metrics`.
-    3. **Grafana**: Shows Azure SQL Database data fetched in a [Dashboard](https://github.com/R-dVL/monitoring/tree/master/sql_exporter/examples/azure-sql-mi/grafana-dashboard).
+
+1. **Exporter**: Fetch data from Azure SQL Database with collectors, collectors retrieve information with SQL Queries and saves it in `/metrics`.
+2. **Prometheus**: Works with Web Scrapping, it is configured to scrape database info from `/metrics`.
+3. **Grafana**: Shows Azure SQL Database data fetched in a [Dashboard](https://github.com/R-dVL/monitoring/tree/master/sql_exporter/examples/azure-sql-mi/grafana-dashboard).
 
 
 ## Configuration
