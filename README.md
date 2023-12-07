@@ -4,9 +4,9 @@ Grafana Azure SQL Dashboard monitoring
 
 ## Table of Contents
 1. [Dependencies](#Dependencies)
-2. [Usage](#Workflow)
+2. [Workflow](#Workflow)
 2. [Configuration](#Configuration)
-2. [Run](#Usage)
+2. [Usage](#Usage)
 
 
 ## Dependencies
