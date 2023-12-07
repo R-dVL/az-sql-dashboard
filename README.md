@@ -1,5 +1,5 @@
-# Monitoring
-Grafana Azure SQL Dashboard monitoring
+# Azure SQL Dashboard
+Grafana Azure SQL Dashboard monitoring.
 
 
 ## Table of Contents
